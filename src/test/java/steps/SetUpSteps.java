@@ -15,11 +15,6 @@ public class SetUpSteps {
         LocatorRepository.load("platform");
         new MobileDriverConfigurations().getAppiumDriver(platform);
         System.out.println("Driver instantiated");
-
-        AppiumDriver driver = MobileDriverConfigurations.getCurrentDriver();
-
-        //driver.get("https://www.vysor.io/");
-
     }
     @After
     public void afterScenario(Scenario scenario) {
@@ -27,10 +22,6 @@ public class SetUpSteps {
         MobileDriverConfigurations.removeDriver();
         driver.quit();
 
-    }
-    @And("nothing")
-    public void nothing(){
-        System.out.println("skeyeet");
     }
 
 }
