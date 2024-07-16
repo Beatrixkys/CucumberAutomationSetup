@@ -4,6 +4,18 @@
   },
   "phoneImage": {
     "web": "css selector:div.image.phone"
+  },
+  "headerContent": {
+    "web": "css selector:.content"
+  },
+  "downloadButton": {
+    "web": "css selector:a[href='javascript:openDownload()']"
+  },
+  "watchVideo": {
+    "web": "css selector:a[href='https://www.youtube.com/watch?v=qAHTini67GA']"
+  },
+  "learnMore": {
+    "web": "css selector:a[href='#one']"
   }
 }
 

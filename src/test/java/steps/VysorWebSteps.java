@@ -1,13 +1,16 @@
 package steps;
 
 import cucumber.api.java.en.Given;
+import pages.VysorWebPage;
 import utils.MobileHandlers;
 
 public class VysorWebSteps {
     @Given("I am on Vysor Web")
     public void onVysorWeb(){
-        MobileHandlers.checkElementDisplayed("VysorWebPage.headerTitle");
-        MobileHandlers.checkElementDisplayed("VysorWebPage.phoneImage");
+        VysorWebPage vysorWebPage = new VysorWebPage();
+        vysorWebPage.validateFirstLoad();
+        vysorWebPage.checkButtons();
+        //Check buttons
     }
 
 }
