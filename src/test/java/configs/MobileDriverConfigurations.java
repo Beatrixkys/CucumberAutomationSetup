@@ -1,6 +1,8 @@
 package configs;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.FileReader;
@@ -29,10 +31,10 @@ public class MobileDriverConfigurations {
         tlDriver.remove();
     }
 
-    public AndroidDriver setAndroidDriver(String platform){
+    public AndroidDriver setAndroidDriver(){
             DesiredCapabilities cap = new DesiredCapabilities();
             AndroidDriver driver = null;
-            Properties properties = getRunPlatformConfig(platform);
+            Properties properties = getRunPlatformConfig("android");
             try{
                 cap.setCapability("appPackage",properties.getProperty("appPackage"));
                 cap.setCapability("appActivity",properties.getProperty("appActivity"));
@@ -47,14 +49,32 @@ public class MobileDriverConfigurations {
             return driver;
         }
 
+        //Run appium with appium --allow-insecure chromedriver_autodownload
+    public AndroidDriver setWebAndroidDriver(){
+        DesiredCapabilities cap = new DesiredCapabilities();
+        AndroidDriver driver = null;
+        Properties properties = getRunPlatformConfig("android");
+        try{
+            cap.setCapability(CapabilityType.BROWSER_NAME,"Chrome");
+            cap.setCapability("udid", properties.getProperty("udid"));
+            cap.setCapability("automationName", "UiAutomator2");
+            URL url = new URL("http://127.0.0.1:4723/");
+            driver = new AndroidDriver(url, cap);
+            driver.get(properties.getProperty("url"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return driver;
+    }
+
     public AppiumDriver getAppiumDriver(String platform){
         AppiumDriver appiumDriver = null;
-        switch (platform) {
-            case "Android":
-                appiumDriver = setAndroidDriver(platform);
+        switch (platform.toLowerCase()) {
+            case "android":
+                appiumDriver = setAndroidDriver();
                 break;
-            case "iOS":
-                appiumDriver = setAndroidDriver(platform);
+            case "androidweb":
+                appiumDriver = setWebAndroidDriver();
                 break;
             default:
         }

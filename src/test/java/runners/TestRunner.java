@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "classpath:features"
         ,glue={"steps"}
-        ,tags ={"@Vysor1"}
+        ,tags ={"@Web1"}
         ,plugin = {"io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm"}
 
 )

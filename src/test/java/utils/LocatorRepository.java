@@ -39,7 +39,7 @@ public class LocatorRepository {
             Map<String, Object> map = obj.toMap();
             for (Map.Entry<String,Object> entry : map.entrySet()){
                  String value = (String) (isAndroid ?  ((HashMap) entry.getValue()).get("android")
-                        : ((HashMap) entry.getValue()).get("ios"));
+                        : ((HashMap) entry.getValue()).get("web"));
                 objectRepository.put(fileName + entry.getKey(), value);
                 if (((HashMap) entry.getValue()).size()>2){
                     objectRepository.put(fileName + entry.getKey() + ".expectedValue", value);
