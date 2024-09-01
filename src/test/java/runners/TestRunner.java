@@ -8,9 +8,10 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "classpath:features"
         ,glue={"steps"}
-        ,tags ={"@Web1"}
+        ,tags ={"@Feature:Login"}
         ,plugin = {"io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm"}
 
 )
+
 public class TestRunner {
 }

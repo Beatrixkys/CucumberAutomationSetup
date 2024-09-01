@@ -17,10 +17,17 @@
     <dependencies>
 
         <dependency>
-            <groupId>io.appium</groupId>
-            <artifactId>java-client</artifactId>
-            <version>8.6.0</version>
+          	<groupId>org.seleniumhq.selenium</groupId>
+   	        <artifactId>selenium-java</artifactId>
+   	        <version>4.16.1</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>33.3.0-jre</version>
+        </dependency>
+
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
@@ -47,6 +54,7 @@
             <artifactId>assertj-core</artifactId>
             <version>3.12.1</version>
         </dependency>
+
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>

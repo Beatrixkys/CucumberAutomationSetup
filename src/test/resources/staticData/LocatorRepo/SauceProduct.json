@@ -1,0 +1,14 @@
+{
+    "productTitle": {
+      "web": "className:header_secondary_container"
+    },
+    "cartButton": {
+      "web": "id:shopping_cart_container"
+    },
+    "firstProductAddToCart": {
+      "web": "id:add-to-cart-sauce-labs-backpack"
+    }
+
+  }
+  
+  

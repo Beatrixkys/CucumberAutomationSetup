@@ -1,0 +1,21 @@
+{
+  "headerTitle": {
+    "web": "css selector:div.login_logo"
+  },
+  "usernameInput": {
+    "web": "id:user-name"
+  },
+  "passwordInput": {
+    "web": "id:password"
+  },
+  "loginButton": {
+    "web": "id:login-button"
+  },
+  "errorMessage": {
+    "web": "className:error-message-container"
+  },
+  "errorMessageCloseButton":{
+    "web":"className:error-button"
+  }
+}
+

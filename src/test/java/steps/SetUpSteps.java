@@ -1,25 +1,23 @@
 package steps;
 
-import configs.MobileDriverConfigurations;
+import configs.WebDriverConfigurations;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import cucumber.api.java.en.And;
-import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.WebDriver;
 import utils.LocatorRepository;
 
 public class SetUpSteps {
-    String platform = "AndroidWeb";
     @Before
     public void startApp(Scenario scenario) throws Exception {
-        LocatorRepository.load("platform");
-        new MobileDriverConfigurations().getAppiumDriver(platform);
+        LocatorRepository.load();
+        new WebDriverConfigurations().setWebDriver();
         System.out.println("Driver instantiated");
     }
     @After
     public void afterScenario(Scenario scenario) {
-        AppiumDriver driver = MobileDriverConfigurations.getCurrentDriver();
-        MobileDriverConfigurations.removeDriver();
+        WebDriver driver = WebDriverConfigurations.getCurrentDriver();
+        WebDriverConfigurations.removeDriver();
         driver.quit();
 
     }

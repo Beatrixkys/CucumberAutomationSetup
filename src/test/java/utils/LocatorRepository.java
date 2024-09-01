@@ -20,13 +20,9 @@ public class LocatorRepository {
         return objectRepository.get(key);
     }
 
-    public static void load(String platform) throws IOException {
+    public static void load() throws IOException {
         String dir =System.getProperty("user.dir");
         dir += "/src/test/resources/staticData/LocatorRepo";
-
-        if (platform.toLowerCase().contains("android")){
-            isAndroid = true;
-        }
 
         List<Path> paths = Files.walk(Paths.get(dir),1)
                     .filter(Files::isRegularFile)
@@ -38,8 +34,7 @@ public class LocatorRepository {
             JSONObject obj = new JSONObject(json);
             Map<String, Object> map = obj.toMap();
             for (Map.Entry<String,Object> entry : map.entrySet()){
-                 String value = (String) (isAndroid ?  ((HashMap) entry.getValue()).get("android")
-                        : ((HashMap) entry.getValue()).get("web"));
+                 String value = (String) (((HashMap) entry.getValue()).get("web"));
                 objectRepository.put(fileName + entry.getKey(), value);
                 if (((HashMap) entry.getValue()).size()>2){
                     objectRepository.put(fileName + entry.getKey() + ".expectedValue", value);
